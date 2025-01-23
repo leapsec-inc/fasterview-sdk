@@ -38,9 +38,10 @@ function Embed(_a) {
         setButtonLeftCoord(buttonRef.current.offsetWidth / 2 + buttonRef.current.offsetHeight / 2);
       }
     };
-    adjustButtonPosition();
+    window.addEventListener("load", adjustButtonPosition);
     window.addEventListener("resize", adjustButtonPosition);
     return function () {
+      window.removeEventListener("load", adjustButtonPosition);
       window.removeEventListener("resize", adjustButtonPosition);
     };
   }, [buttonRef]);
@@ -95,7 +96,7 @@ function Embed(_a) {
       left: "-".concat(buttonLeftCoord, "px")
     }),
     onClick: function () {
-      setIsOpen(true);
+      setIsOpen(!isOpen);
     }
   }, data.text), _react.default.createElement("iframe", {
     id: "fasterview-iframe",

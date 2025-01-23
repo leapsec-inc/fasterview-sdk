@@ -23,10 +23,11 @@ export function Embed({ id, isDevelopmentMode }: Props) {
             }
         }
 
-        adjustButtonPosition();
+        window.addEventListener("load", adjustButtonPosition);
         window.addEventListener("resize", adjustButtonPosition);
 
         return () => {
+            window.removeEventListener("load", adjustButtonPosition);
             window.removeEventListener("resize", adjustButtonPosition);
         };
     }, [buttonRef]);
@@ -87,7 +88,7 @@ export function Embed({ id, isDevelopmentMode }: Props) {
 
                                 }}
                                 onClick={() => {
-                                    setIsOpen(true);
+                                    setIsOpen(!isOpen);
                                 }}
                             >
                                 {data.text}
