@@ -4,12 +4,19 @@ import useSWR from 'swr';
 import { wrapperStyle, inlineStyle, buttonStyle, iframeStyle, openStyle } from './style';
 import { EmbedInfo } from './type';
 
+type AbsoluteStyle = {
+    position: 'absolute',
+    top: string;
+    right: string;
+}
+
 type Props = {
     id: string;
     isDevelopmentMode?: boolean;
+    absoluteStyle?: AbsoluteStyle | {};
 }
 
-export function Embed({ id, isDevelopmentMode = false }: Props) {
+export function Embed({ id, isDevelopmentMode = false, absoluteStyle = {} }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     // ボタンの位置調整
@@ -79,7 +86,12 @@ export function Embed({ id, isDevelopmentMode = false }: Props) {
         <>
             {
                 data && (
-                    <div style={isOpen ? openStyle : wrapperStyle}>
+                    <div
+                        style={{
+                            ...(isOpen ? openStyle : wrapperStyle),
+                            ...absoluteStyle,
+                        }}
+                    >
                         <div style={inlineStyle}>
                             <button
                                 ref={buttonRef}

@@ -24,14 +24,16 @@ var __assign = void 0 && (void 0).__assign || function () {
 function Embed(_a) {
   var id = _a.id,
     _b = _a.isDevelopmentMode,
-    isDevelopmentMode = _b === void 0 ? false : _b;
-  var _c = (0, _react.useState)(false),
-    isOpen = _c[0],
-    setIsOpen = _c[1];
+    isDevelopmentMode = _b === void 0 ? false : _b,
+    _c = _a.absoluteStyle,
+    absoluteStyle = _c === void 0 ? {} : _c;
+  var _d = (0, _react.useState)(false),
+    isOpen = _d[0],
+    setIsOpen = _d[1];
   // ボタンの位置調整
-  var _d = (0, _react.useState)(0),
-    buttonLeftCoord = _d[0],
-    setButtonLeftCoord = _d[1];
+  var _e = (0, _react.useState)(0),
+    buttonLeftCoord = _e[0],
+    setButtonLeftCoord = _e[1];
   var buttonRef = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
     var adjustButtonPosition = function () {
@@ -68,9 +70,9 @@ function Embed(_a) {
       return res.json();
     });
   };
-  var _e = (0, _swr.default)("".concat(domain, "/api/embed?id=").concat(id), fetcher),
-    data = _e.data,
-    error = _e.error;
+  var _f = (0, _swr.default)("".concat(domain, "/api/embed?id=").concat(id), fetcher),
+    data = _f.data,
+    error = _f.error;
   // iframeからのメッセージを受信して, アンケートを閉じる
   (0, _react.useEffect)(function () {
     var handleMessage = function (event) {
@@ -88,7 +90,7 @@ function Embed(_a) {
     return null;
   }
   return _react.default.createElement(_react.default.Fragment, null, data && _react.default.createElement("div", {
-    style: isOpen ? _style.openStyle : _style.wrapperStyle
+    style: __assign(__assign({}, isOpen ? _style.openStyle : _style.wrapperStyle), absoluteStyle)
   }, _react.default.createElement("div", {
     style: _style.inlineStyle
   }, _react.default.createElement("button", {
