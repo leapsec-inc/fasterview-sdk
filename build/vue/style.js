@@ -1,7 +1,8 @@
 export const wrapperStyle = {
     position: 'fixed',
     top: '200px',
-    right: '-360px',
+    right: '0',
+    transform: 'translateX(100%)',
     transition: '0.2s ease-in-out',
     'z-index': 1000,
 };
@@ -37,10 +38,5 @@ export const iframeStyle = {
 
 export const openStyle = {
     ...wrapperStyle,
-    display: 'flex',
-    transition: 'all 0.2s ease-in-out',
-    position: 'fixed',
-    top: '200px',
-    right: '0px',
-    'z-index': 1000,
+    transform: 'translateX(0)',
 }

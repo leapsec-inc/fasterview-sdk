@@ -157,7 +157,7 @@ function embed(_a) {
             console.error("failed to get embed info");
             return [2 /*return*/];
           }
-          wrapperStyle = "\n          position: fixed;        \n          top: 200px;\n          right: -360px;\n          transition: 0.2s ease-in-out;\n          z-index: 1000;\n      ";
+          wrapperStyle = "\n          position: fixed;        \n          top: 200px;\n          right: 0;\n          transform: translateX(100%);\n          transition: 0.2s ease-in-out;\n          z-index: 1000;\n      ";
           inlineStyle = "\n          position: relative;\n          display: flex;\n          align-items: center;\n      ";
           buttonStyle = "\n          position: absolute;\n          left: 0;\n          width: fit-content;\n          height: fit-content;\n          background-color: ".concat(embedInfo.backgroundColor, ";\n          color: ").concat(embedInfo.textColor, ";\n          border-radius: 8px 8px 0 0;\n          padding: 8px 16px;\n          white-space: nowrap;\n          transform: rotate(-90deg);\n          overflow: hidden;\n          text-overflow: ellipsis;\n          cursor: pointer;\n      ");
           iframeStyle = "\n          width: 360px;\n          height: 480px;\n          border-radius: 8px 0 0 8px;\n          border: 1px solid ".concat(embedInfo.backgroundColor, ";\n          border-right: none;\n          overflow: hidden;\n          z-index: 1000;\n      ");
@@ -178,7 +178,7 @@ function embed(_a) {
           // (button.offsetWidth + button.offsetHeight) / 2 でも良いが, 分かりやすいようにそれぞれの半分を足す
           button.style.left = "-".concat(button.offsetWidth / 2 + button.offsetHeight / 2, "px");
           style = document.createElement("style");
-          style.textContent = "\n          .fasterview-open {\n              display: flex !important;\n              transition: all 0.2s ease-in-out !important;\n              position: fixed !important; \n              top: 200px !important;\n              right: 0px !important;\n              z-index: 1000 !important;\n          }\n      ";
+          style.textContent = "\n          .fasterview-open {\n              transform: translateX(0) !important;\n          }\n      ";
           document.body.appendChild(style);
           window.addEventListener("message", function (event) {
             if (event.data === "fasterview-close-button-".concat(recruitmentId)) {

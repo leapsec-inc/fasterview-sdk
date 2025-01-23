@@ -3,8 +3,9 @@ import React from 'react';
 export const wrapperStyle: React.CSSProperties = {
     position: 'fixed',
     top: '200px',
-    right: '-360px',
+    right: '0',
     transition: '0.2s ease-in-out',
+    transform: 'translateX(100%)',
     zIndex: 1000,
 };
 
@@ -39,10 +40,5 @@ export const iframeStyle: React.CSSProperties = {
 
 export const openStyle: React.CSSProperties = {
     ...wrapperStyle,
-    display: 'flex',
-    transition: 'all 0.2s ease-in-out',
-    position: 'fixed',
-    top: '200px',
-    right: '0px',
-    zIndex: 1000,
+    transform: 'translateX(0)',
 }

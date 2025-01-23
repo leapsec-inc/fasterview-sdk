@@ -17,8 +17,9 @@ var __assign = void 0 && (void 0).__assign || function () {
 var wrapperStyle = exports.wrapperStyle = {
   position: 'fixed',
   top: '200px',
-  right: '-360px',
+  right: '0',
   transition: '0.2s ease-in-out',
+  transform: 'translateX(100%)',
   zIndex: 1000
 };
 var inlineStyle = exports.inlineStyle = {
@@ -48,10 +49,5 @@ var iframeStyle = exports.iframeStyle = {
   zIndex: 1000
 };
 var openStyle = exports.openStyle = __assign(__assign({}, wrapperStyle), {
-  display: 'flex',
-  transition: 'all 0.2s ease-in-out',
-  position: 'fixed',
-  top: '200px',
-  right: '0px',
-  zIndex: 1000
+  transform: 'translateX(0)'
 });

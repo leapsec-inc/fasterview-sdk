@@ -44,7 +44,8 @@ export async function embed({ id, isDevelopmentMode = false }: Args): Promise<vo
     const wrapperStyle = `
           position: fixed;        
           top: 200px;
-          right: -360px;
+          right: 0;
+          transform: translateX(100%);
           transition: 0.2s ease-in-out;
           z-index: 1000;
       `;
@@ -115,12 +116,7 @@ export async function embed({ id, isDevelopmentMode = false }: Args): Promise<vo
     const style = document.createElement("style");
     style.textContent = `
           .fasterview-open {
-              display: flex !important;
-              transition: all 0.2s ease-in-out !important;
-              position: fixed !important; 
-              top: 200px !important;
-              right: 0px !important;
-              z-index: 1000 !important;
+              transform: translateX(0) !important;
           }
       `;
     document.body.appendChild(style);
