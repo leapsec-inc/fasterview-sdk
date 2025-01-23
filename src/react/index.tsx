@@ -70,11 +70,6 @@ export function Embed({ id, isDevelopmentMode }: Props) {
         return null;
     }
 
-    if (!data) {
-        console.error('failed to get fasterview embed info. data: ', data);
-        return null;
-    }
-
     return (
         <>
             {

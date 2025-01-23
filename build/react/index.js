@@ -82,10 +82,6 @@ function Embed(_a) {
     console.error('failed to get fasterview embed info. error: ', error);
     return null;
   }
-  if (!data) {
-    console.error('failed to get fasterview embed info. data: ', data);
-    return null;
-  }
   return _react.default.createElement(_react.default.Fragment, null, data && _react.default.createElement("div", {
     style: isOpen ? _style.openStyle : _style.wrapperStyle
   }, _react.default.createElement("div", {
