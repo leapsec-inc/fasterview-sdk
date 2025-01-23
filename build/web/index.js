@@ -187,11 +187,7 @@ function embed(_a) {
           });
           window.addEventListener("click", function (event) {
             var target = event.target;
-            if (!(target === null || target === void 0 ? void 0 : target.id)) {
-              console.error("event is null");
-              return;
-            }
-            if (target.id === button.id) {
+            if ((target === null || target === void 0 ? void 0 : target.id) === button.id) {
               wrapper.classList.toggle("fasterview-open");
             } else {
               wrapper.classList.remove("fasterview-open");

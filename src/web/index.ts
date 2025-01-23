@@ -134,12 +134,7 @@ export async function embed({ id, isDevelopmentMode = false }: Args): Promise<vo
     window.addEventListener("click", (event: MouseEvent) => {
         const target = event.target as HTMLElement;
 
-        if (!target?.id) {
-            console.error("event is null");
-            return;
-        }
-
-        if (target.id === button.id) {
+        if (target?.id === button.id) {
             wrapper.classList.toggle("fasterview-open");
         } else {
             wrapper.classList.remove("fasterview-open");
