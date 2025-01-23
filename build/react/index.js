@@ -34,14 +34,17 @@ function Embed(_a) {
   var buttonRef = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
     var adjustButtonPosition = function () {
+      console.log("buttonRef", buttonRef.current);
       if (buttonRef.current) {
         setButtonLeftCoord(buttonRef.current.offsetWidth / 2 + buttonRef.current.offsetHeight / 2);
       }
     };
-    window.addEventListener("load", adjustButtonPosition);
+    // ページ表示タイミングではなぜかbuttonRefが取得できないので, 100ms後に実行する
+    setTimeout(function () {
+      adjustButtonPosition();
+    }, 100);
     window.addEventListener("resize", adjustButtonPosition);
     return function () {
-      window.removeEventListener("load", adjustButtonPosition);
       window.removeEventListener("resize", adjustButtonPosition);
     };
   }, [buttonRef]);
@@ -88,7 +91,6 @@ function Embed(_a) {
   }, _react.default.createElement("div", {
     style: _style.inlineStyle
   }, _react.default.createElement("button", {
-    id: "fasterview-button",
     ref: buttonRef,
     style: __assign(__assign({}, _style.buttonStyle), {
       backgroundColor: data.backgroundColor,
@@ -99,7 +101,6 @@ function Embed(_a) {
       setIsOpen(!isOpen);
     }
   }, data.text), _react.default.createElement("iframe", {
-    id: "fasterview-iframe",
     style: __assign(__assign({}, _style.iframeStyle), {
       borderColor: data.backgroundColor
     }),

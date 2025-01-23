@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --project tsconfig.json && babel --plugins '@babel/plugin-transform-modules-commonjs' ./build --out-dir ./build && cp src/vue/Embed.vue ./build/vue/Embed.vue"
+    "build": "rm -rf build && tsc --project tsconfig.json && babel --plugins '@babel/plugin-transform-modules-commonjs' ./build --out-dir ./build && cp -R src/vue ./build/vue"
   },
   "author": "",
   "license": "ISC",

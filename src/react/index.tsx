@@ -18,16 +18,20 @@ export function Embed({ id, isDevelopmentMode }: Props) {
 
     useEffect(() => {
         const adjustButtonPosition = () => {
+            console.log("buttonRef", buttonRef.current);
             if (buttonRef.current) {
                 setButtonLeftCoord(buttonRef.current.offsetWidth / 2 + buttonRef.current.offsetHeight / 2);
             }
         }
 
-        window.addEventListener("load", adjustButtonPosition);
+        // ページ表示タイミングではなぜかbuttonRefが取得できないので, 100ms後に実行する
+        setTimeout(() => {
+            adjustButtonPosition()
+        }, 100);
+
         window.addEventListener("resize", adjustButtonPosition);
 
         return () => {
-            window.removeEventListener("load", adjustButtonPosition);
             window.removeEventListener("resize", adjustButtonPosition);
         };
     }, [buttonRef]);
@@ -78,7 +82,6 @@ export function Embed({ id, isDevelopmentMode }: Props) {
                     <div style={isOpen ? openStyle : wrapperStyle}>
                         <div style={inlineStyle}>
                             <button
-                                id="fasterview-button"
                                 ref={buttonRef}
                                 style={{
                                     ...buttonStyle,
@@ -95,7 +98,6 @@ export function Embed({ id, isDevelopmentMode }: Props) {
                             </button>
 
                             <iframe
-                                id="fasterview-iframe"
                                 style={{
                                     ...iframeStyle,
                                     borderColor: data.backgroundColor,

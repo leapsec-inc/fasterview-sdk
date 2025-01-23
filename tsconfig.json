@@ -24,11 +24,11 @@
         "**/*.ts",
         "**/*.tsx",
         "**/*.vue",
-        "vue-shims.d.ts"
+        "vue-shims.d.ts",
+        "**/*.js",
     ],
     "files": [
         "./src/react/index.tsx",
-        "./src/vue/index.ts",
         "./src/web/index.ts"
     ]
 }
