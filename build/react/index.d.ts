@@ -1,2 +1,7 @@
 import React from 'react';
-export declare function Embed(): React.JSX.Element;
+type Props = {
+    id: string;
+    isDevelopmentMode: boolean;
+};
+export declare function Embed({ id, isDevelopmentMode }: Props): React.JSX.Element | null;
+export {};
