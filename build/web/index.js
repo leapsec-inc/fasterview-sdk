@@ -117,33 +117,26 @@ var __generator = void 0 && (void 0).__generator || function (thisArg, body) {
 };
 function embed(_a) {
   return __awaiter(this, arguments, void 0, function (_b) {
-    var currentScript, scriptUrl, recruitmentId, embedInfo, domain, res, error_1, wrapperStyle, inlineStyle, buttonStyle, iframeStyle, html, target, wrapper, button, iframe, style;
-    var _c;
+    var recruitmentId, embedInfo, domain, res, error_1, wrapperStyle, inlineStyle, buttonStyle, iframeStyle, html, target, wrapper, button, iframe, style;
     var id = _b.id,
       isDevelopmentMode = _b.isDevelopmentMode;
-    return __generator(this, function (_d) {
-      switch (_d.label) {
+    return __generator(this, function (_c) {
+      switch (_c.label) {
         case 0:
-          currentScript = document.currentScript;
-          if (!currentScript || !(currentScript instanceof HTMLScriptElement)) {
-            console.error("currentScript is null or not an HTMLScriptElement");
-            return [2 /*return*/];
-          }
-          scriptUrl = new URL(currentScript.src);
-          recruitmentId = (_c = scriptUrl.searchParams.get("id")) !== null && _c !== void 0 ? _c : null;
+          recruitmentId = id;
           if (!recruitmentId) {
             console.error("Recruitment ID is required");
             return [2 /*return*/];
           }
           console.log("recruitmentId:", recruitmentId);
           embedInfo = null;
-          _d.label = 1;
+          _c.label = 1;
         case 1:
-          _d.trys.push([1, 4,, 5]);
+          _c.trys.push([1, 4,, 5]);
           domain = isDevelopmentMode ? "http://localhost:3000" : "https://fasterview.ai";
           return [4 /*yield*/, fetch("".concat(domain, "/api/embed?id=").concat(recruitmentId))];
         case 2:
-          res = _d.sent();
+          res = _c.sent();
           if (!res.ok) {
             console.error("failed to get embed info");
             return [2 /*return*/];
@@ -151,11 +144,11 @@ function embed(_a) {
           return [4 /*yield*/, res.json()];
         case 3:
           // json を取得して定数 json に格納
-          embedInfo = _d.sent();
+          embedInfo = _c.sent();
           console.log("got embed info:", embedInfo);
           return [3 /*break*/, 5];
         case 4:
-          error_1 = _d.sent();
+          error_1 = _c.sent();
           console.error("failed to get embed info:", error_1);
           return [3 /*break*/, 5];
         case 5:

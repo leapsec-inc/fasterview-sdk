@@ -5,17 +5,7 @@ type Args = {
 }
 
 export async function embed({ id, isDevelopmentMode }: Args): Promise<void> {
-    // scriptファイルが/embed.js?id=recruitmentId の形式で呼び出されるので,
-    // id=recruitmentIdの部分を取得する
-    const currentScript = document.currentScript;
-
-    if (!currentScript || !(currentScript instanceof HTMLScriptElement)) {
-        console.error("currentScript is null or not an HTMLScriptElement");
-        return;
-    }
-
-    const scriptUrl = new URL(currentScript.src);
-    const recruitmentId = scriptUrl.searchParams.get("id") ?? null;
+    const recruitmentId = id;
 
     if (!recruitmentId) {
         console.error("Recruitment ID is required");
