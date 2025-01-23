@@ -88,6 +88,7 @@ function Embed(_a) {
     style: _style.inlineStyle
   }, _react.default.createElement("button", {
     id: "fasterview-button",
+    ref: buttonRef,
     style: __assign(__assign({}, _style.buttonStyle), {
       backgroundColor: data.backgroundColor,
       color: data.textColor,

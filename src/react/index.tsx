@@ -14,7 +14,7 @@ export function Embed({ id, isDevelopmentMode }: Props) {
 
     // ボタンの位置調整
     const [buttonLeftCoord, setButtonLeftCoord] = useState(0);
-    const buttonRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         const adjustButtonPosition = () => {
@@ -78,6 +78,7 @@ export function Embed({ id, isDevelopmentMode }: Props) {
                         <div style={inlineStyle}>
                             <button
                                 id="fasterview-button"
+                                ref={buttonRef}
                                 style={{
                                     ...buttonStyle,
                                     backgroundColor: data.backgroundColor,
