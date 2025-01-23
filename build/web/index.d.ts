@@ -1,6 +1,6 @@
 type Args = {
     id: string;
-    isDevelopmentMode: boolean;
+    isDevelopmentMode?: boolean;
 };
 export declare function embed({ id, isDevelopmentMode }: Args): Promise<void>;
 export {};

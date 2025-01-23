@@ -6,10 +6,10 @@ import { EmbedInfo } from './type';
 
 type Props = {
     id: string;
-    isDevelopmentMode: boolean;
+    isDevelopmentMode?: boolean;
 }
 
-export function Embed({ id, isDevelopmentMode }: Props) {
+export function Embed({ id, isDevelopmentMode = false }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     // ボタンの位置調整

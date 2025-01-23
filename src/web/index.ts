@@ -1,10 +1,10 @@
 // FIXME: リリース前にconstをletまたはvarに変更し, can i useで各プロパティのブラウザサポートを確認する
 type Args = {
     id: string;
-    isDevelopmentMode: boolean;
+    isDevelopmentMode?: boolean;
 }
 
-export async function embed({ id, isDevelopmentMode }: Args): Promise<void> {
+export async function embed({ id, isDevelopmentMode = false }: Args): Promise<void> {
     const recruitmentId = id;
 
     if (!recruitmentId) {

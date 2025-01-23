@@ -29,7 +29,8 @@ export default {
     },
     isDevelopmentMode: {
       type: Boolean,
-      required: true
+      required: false,
+      default: false,
     }
   },
   setup(props) {

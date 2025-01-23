@@ -119,9 +119,10 @@ function embed(_a) {
   return __awaiter(this, arguments, void 0, function (_b) {
     var recruitmentId, embedInfo, domain, res, error_1, wrapperStyle, inlineStyle, buttonStyle, iframeStyle, html, target, wrapper, button, iframe, style;
     var id = _b.id,
-      isDevelopmentMode = _b.isDevelopmentMode;
-    return __generator(this, function (_c) {
-      switch (_c.label) {
+      _c = _b.isDevelopmentMode,
+      isDevelopmentMode = _c === void 0 ? false : _c;
+    return __generator(this, function (_d) {
+      switch (_d.label) {
         case 0:
           recruitmentId = id;
           if (!recruitmentId) {
@@ -130,13 +131,13 @@ function embed(_a) {
           }
           console.log("recruitmentId:", recruitmentId);
           embedInfo = null;
-          _c.label = 1;
+          _d.label = 1;
         case 1:
-          _c.trys.push([1, 4,, 5]);
+          _d.trys.push([1, 4,, 5]);
           domain = isDevelopmentMode ? "http://localhost:3000" : "https://fasterview.ai";
           return [4 /*yield*/, fetch("".concat(domain, "/api/embed?id=").concat(recruitmentId))];
         case 2:
-          res = _c.sent();
+          res = _d.sent();
           if (!res.ok) {
             console.error("failed to get embed info");
             return [2 /*return*/];
@@ -144,11 +145,11 @@ function embed(_a) {
           return [4 /*yield*/, res.json()];
         case 3:
           // json を取得して定数 json に格納
-          embedInfo = _c.sent();
+          embedInfo = _d.sent();
           console.log("got embed info:", embedInfo);
           return [3 /*break*/, 5];
         case 4:
-          error_1 = _c.sent();
+          error_1 = _d.sent();
           console.error("failed to get embed info:", error_1);
           return [3 /*break*/, 5];
         case 5:
