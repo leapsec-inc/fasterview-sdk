@@ -9,7 +9,7 @@
         {{ data.text }}
       </button>
       <iframe
-        :style="iframeStyleComputed"
+        :style="iframeStyle"
         :src="`${domain}/user/answer/${id}/embed`"
       />
     </div>
@@ -91,11 +91,6 @@ export default {
       left: `-${buttonLeftCoord.value}px`,
     }));
 
-    const iframeStyleComputed = computed(() => ({
-      ...iframeStyle,
-      borderColor: data.value?.backgroundColor,
-    }));
-
     return {
       isOpen,
       buttonRef,
@@ -105,7 +100,7 @@ export default {
       inlineStyle,
       openStyle,
       buttonStyleComputed,
-      iframeStyleComputed,
+      iframeStyle,
       toggleOpen
     };
   }

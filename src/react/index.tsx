@@ -13,10 +13,11 @@ type AbsoluteStyle = {
 type Props = {
     id: string;
     isDevelopmentMode?: boolean;
+    isStagingMode?: boolean;
     absoluteStyle?: AbsoluteStyle | {};
 }
 
-export function Embed({ id, isDevelopmentMode = false, absoluteStyle = {} }: Props) {
+export function Embed({ id, isDevelopmentMode = false, isStagingMode = false, absoluteStyle = {} }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     // ボタンの位置調整
@@ -58,7 +59,9 @@ export function Embed({ id, isDevelopmentMode = false, absoluteStyle = {} }: Pro
     }, [buttonRef]);
 
     // APIから埋め込み設定の情報を取得する
-    const domain = isDevelopmentMode ? 'http://localhost:3000' : 'https://fasterview.ai';
+    const domain = isDevelopmentMode
+        ? 'http://localhost:3000' : isStagingMode
+            ? 'https://stg.fasterview.jp' : 'https://fasterview.ai';
     const fetcher = (url: string) => fetch(url).then(res => res.json());
     const { data, error } = useSWR<EmbedInfo>(`${domain}/api/embed?id=${id}`, fetcher);
 
@@ -110,10 +113,7 @@ export function Embed({ id, isDevelopmentMode = false, absoluteStyle = {} }: Pro
                             </button>
 
                             <iframe
-                                style={{
-                                    ...iframeStyle,
-                                    borderColor: data.backgroundColor,
-                                }}
+                                style={iframeStyle}
                                 src={`${domain}/user/answer/${id}/embed`}
                             />
                         </div>

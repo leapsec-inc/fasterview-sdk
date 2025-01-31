@@ -7,7 +7,8 @@ type AbsoluteStyle = {
 type Props = {
     id: string;
     isDevelopmentMode?: boolean;
+    isStagingMode?: boolean;
     absoluteStyle?: AbsoluteStyle | {};
 };
-export declare function Embed({ id, isDevelopmentMode, absoluteStyle }: Props): React.JSX.Element | null;
+export declare function Embed({ id, isDevelopmentMode, isStagingMode, absoluteStyle }: Props): React.JSX.Element | null;
 export {};

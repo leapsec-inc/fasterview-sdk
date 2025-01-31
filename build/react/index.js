@@ -25,15 +25,17 @@ function Embed(_a) {
   var id = _a.id,
     _b = _a.isDevelopmentMode,
     isDevelopmentMode = _b === void 0 ? false : _b,
-    _c = _a.absoluteStyle,
-    absoluteStyle = _c === void 0 ? {} : _c;
-  var _d = (0, _react.useState)(false),
-    isOpen = _d[0],
-    setIsOpen = _d[1];
+    _c = _a.isStagingMode,
+    isStagingMode = _c === void 0 ? false : _c,
+    _d = _a.absoluteStyle,
+    absoluteStyle = _d === void 0 ? {} : _d;
+  var _e = (0, _react.useState)(false),
+    isOpen = _e[0],
+    setIsOpen = _e[1];
   // ボタンの位置調整
-  var _e = (0, _react.useState)(0),
-    buttonLeftCoord = _e[0],
-    setButtonLeftCoord = _e[1];
+  var _f = (0, _react.useState)(0),
+    buttonLeftCoord = _f[0],
+    setButtonLeftCoord = _f[1];
   var buttonRef = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
     var adjustButtonPosition = function () {
@@ -64,15 +66,15 @@ function Embed(_a) {
     };
   }, [buttonRef]);
   // APIから埋め込み設定の情報を取得する
-  var domain = isDevelopmentMode ? 'http://localhost:3000' : 'https://fasterview.ai';
+  var domain = isDevelopmentMode ? 'http://localhost:3000' : isStagingMode ? 'https://stg.fasterview.jp' : 'https://fasterview.ai';
   var fetcher = function (url) {
     return fetch(url).then(function (res) {
       return res.json();
     });
   };
-  var _f = (0, _swr.default)("".concat(domain, "/api/embed?id=").concat(id), fetcher),
-    data = _f.data,
-    error = _f.error;
+  var _g = (0, _swr.default)("".concat(domain, "/api/embed?id=").concat(id), fetcher),
+    data = _g.data,
+    error = _g.error;
   // iframeからのメッセージを受信して, アンケートを閉じる
   (0, _react.useEffect)(function () {
     var handleMessage = function (event) {
@@ -104,9 +106,7 @@ function Embed(_a) {
       setIsOpen(!isOpen);
     }
   }, data.text), _react.default.createElement("iframe", {
-    style: __assign(__assign({}, _style.iframeStyle), {
-      borderColor: data.backgroundColor
-    }),
+    style: _style.iframeStyle,
     src: "".concat(domain, "/user/answer/").concat(id, "/embed")
   }))));
 }

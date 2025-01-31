@@ -33,6 +33,7 @@ var buttonStyle = exports.buttonStyle = {
   width: 'fit-content',
   height: 'fit-content',
   borderRadius: '8px 8px 0 0',
+  border: 'none',
   padding: '8px 16px',
   whiteSpace: 'nowrap',
   transform: 'rotate(-90deg)',
@@ -44,6 +45,7 @@ var iframeStyle = exports.iframeStyle = {
   width: '360px',
   height: '480px',
   borderRadius: '8px 0 0 8px',
+  border: '1px solid #cac7d6',
   borderRight: 'none',
   overflow: 'hidden',
   zIndex: 1000

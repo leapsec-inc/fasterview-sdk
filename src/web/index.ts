@@ -64,6 +64,7 @@ export async function embed({ id, isDevelopmentMode = false }: Args): Promise<vo
           background-color: ${embedInfo.backgroundColor};
           color: ${embedInfo.textColor};
           border-radius: 8px 8px 0 0;
+          border: none;
           padding: 8px 16px;
           white-space: nowrap;
           transform: rotate(-90deg);
@@ -76,7 +77,7 @@ export async function embed({ id, isDevelopmentMode = false }: Args): Promise<vo
           width: 360px;
           height: 480px;
           border-radius: 8px 0 0 8px;
-          border: 1px solid ${embedInfo.backgroundColor};
+          border: 1px solid #cac7d6;
           border-right: none;
           overflow: hidden;
           z-index: 1000;
