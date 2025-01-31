@@ -1,6 +1,6 @@
 {
   "name": "fasterview-sdk",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "main": "build/web/index.js",
   "exports": {
     "./react": "./build/react/index.js",
